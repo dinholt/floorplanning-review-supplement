@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+*.so
+build/
+outputs/
+.multirun/
+*.th
+fp_problems/gsrc_bench/
