@@ -1,3 +1,44 @@
+// SPDX-License-Identifier: Apache-2.0
+// Inherited PARSAC code, not the submission optimization.
+// Unchanged bodies; surrounding source omitted. See README.md.
+
+class Graph {
+public:
+    Graph(int numVertices) : V(numVertices), adjList(numVertices) {}
+
+    void addEdge(int u, int v) {
+        adjList[u].push_back(v);
+        adjList[v].push_back(u); // Undirected graph, so add edge in both directions
+    }
+
+    int countConnectedComponents() {
+        std::vector<bool> visited(V, false);
+        int count = 0;
+
+        for (int v = 0; v < V; ++v) {
+            if (!visited[v]) {
+                DFS(v, visited);
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+private:
+    void DFS(int vertex, std::vector<bool>& visited) {
+        visited[vertex] = true;
+
+        for (int neighbor : adjList[vertex]) {
+            if (!visited[neighbor]) {
+                DFS(neighbor, visited);
+            }
+        }
+    }
+
+    int V; // Number of vertices
+    std::vector<std::vector<int>> adjList; // Adjacency list
+};
 
 bool BlocksTouching(int i,int j)
 {

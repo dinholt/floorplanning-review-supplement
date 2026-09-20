@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: Apache-2.0
+// Inherited PARSAC code, not the submission optimization.
+// Unchanged bodies; surrounding source omitted. See README.md.
 
 void Swap(int node1, int node2)
 {
